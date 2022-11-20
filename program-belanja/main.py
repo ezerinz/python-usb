@@ -4,17 +4,18 @@ from tkinter import messagebox
 barang = ['Mie Ayam', 'Bakso Urat']
 harga = [15000, 10000]
 window = Tk()
-#window.geometry('300x300')
+window.geometry('253x210')
 
-teks1 = Label(window, text="Pilih Makanan yang akan Dibeli").pack()
+teks1 = Label(window, text="Pilih Makanan yang akan Dibeli").grid(row=0)
+
 
 frameHarga = Frame(window)
-frameHarga.pack()
+frameHarga.grid(row=1)
 
-garis = Label(window, text="-"*50).pack()
+garis = Label(window, text="-"*50).grid(row=2)
 
 frameBeli = Frame(window)
-frameBeli.pack()
+frameBeli.grid(row=3)
 
 def spinbox():
     return Spinbox(frameBeli, from_=0, to =1000)
@@ -51,6 +52,6 @@ def hitung():
 
 
 
-z = Button(window, text="Beli", command = hitung).pack(side=RIGHT)
+z = Button(window, text="Beli", command = hitung).grid(row=4)
 
 window.mainloop()
