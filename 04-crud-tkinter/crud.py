@@ -45,19 +45,19 @@ def update(a, b, c, d, e, f):
     if a == "" or b == "" or c == "" or f == "":
         msg.showwarning("!", "Isi Semua!")
         e.destroy()
-        utama(data)
+        utama(setDisplay())
     elif not c.isdigit():
         msg.showwarning("!", "Isi Nilai dengan Angka!")
         e.destroy()
-        utama(data)
+        utama(setDisplay())
     elif len(f) != 4:
         msg.showwarning("!", "Isi Tahun Masuk dengan Benar!")
         e.destroy()
-        utama(data)
+        utama(setDisplay())
     elif len(a) != 8:
         msg.showwarning("!", "NIM harus 8 karakter!")
         e.destroy()
-        utama(data)
+        utama(setDisplay())
     else: 
         if a == d or not tangkap:
             perintah1 = f"UPDATE biodata SET nim='{a}' WHERE nim='{d}'"
@@ -72,11 +72,11 @@ def update(a, b, c, d, e, f):
             db.commit()
             msg.showinfo("", "DATA DIUPDATE!")
             e.destroy()
-            utama(data)
+            utama(setDisplay())
         else:
             msg.showwarning("!", "NIM sudah ada!")
             e.destroy()
-            utama(data)
+            utama(setDisplay())
 def utama(data):
     root = Tk()
     root.geometry("800x400")
@@ -206,12 +206,11 @@ def create(win):
                 cursor.execute(printah)
                 db.commit()
                 d.destroy()
-                utama(data)
+                utama(setDisplay())
         
     ey = Button(ya, text="Tambah", command=lambda: z(nim, nama, nilai, ya, clicked.get()))
     ey.grid(row=4, columnspan=2, pady=15)
 
     ya.mainloop()
-
-data=setDisplay()
+data = setDisplay()
 utama(data)
