@@ -35,7 +35,6 @@ def checkLogin(u, p, f):
     if checkTable.fetchone() is None:
         db.cur.execute("CREATE TABLE dataAdmin(noid INTEGER PRIMARY KEY, user varchar, pw varchar)")
     
-    #mff :(((((
     check = db.cur.execute("SELECT user FROM dataAdmin WHERE user='admin'")
     if check.fetchone() is None:
         db.cur.execute("INSERT INTO dataAdmin(user, pw) VALUES('admin', 'admin')")
