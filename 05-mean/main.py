@@ -23,7 +23,7 @@ angka = [68, 84, 75, 82, 68, 90, 62, 88, 76, 93,
 
 def jumlah_kelas(n):
     k = 1 + 3.32 * math.log10(n)
-    return k
+    return round(k)
 
 
 def hitung_interval(maks, min, kelas):
@@ -38,6 +38,8 @@ def kategori(maks, min, interval):
 
     jarak = []
     nambah = False
+
+    """
     for index, item in enumerate(lst):
         data = [item, item+(interval-1)]
         if lst[-1]+(interval-1) != maks and index == len(lst) - 2:
@@ -45,7 +47,14 @@ def kategori(maks, min, interval):
             nambah = True
 
         jarak.append(data)
+    """
 
+    for i in lst:
+        data = [i, i+(interval-1)]
+        if lst[-1]+(interval-1) != maks and i == lst[-2]:
+            data = [i, maks]
+            nambah = True
+        jarak.append(data)
     if nambah:
         jarak.pop()
     return jarak
@@ -61,11 +70,9 @@ def hitung_frekuensi(maks, min, interval, data):
 
     for k in range(len(kelas_data)):
         key = f"{kelas_data[k][0]} - {kelas_data[k][1]}"
-        itung = 0
         for l in data:
             if kelas_data[k][0] <= l <= kelas_data[k][1]:
-                itung += 1
-                frekuensi[key] = itung
+                frekuensi[key] += 1
 
     return frekuensi
 
@@ -104,7 +111,11 @@ jumlah_data = len(angka)
 jumlah_kelas = jumlah_kelas(jumlah_data)
 interval = hitung_interval(terbesar, terkecil, jumlah_kelas)
 frekuensi = hitung_frekuensi(terbesar, terkecil, interval, angka)
-
+print(f"Jumlah Data: {jumlah_data}")
+print(f"Nilai Terkecil: {terkecil}")
+print(f"Nilai Terbesar: {terbesar}")
+print(f"Jumlah Kelas: {jumlah_kelas}")
+print(f"interval: {interval}")
 print("Distribusi Frekuensi")
 for i in frekuensi:
     print(f"{i} = {frekuensi[i]}")
