@@ -39,16 +39,6 @@ def kategori(maks, min, interval):
     jarak = []
     nambah = False
 
-    """
-    for index, item in enumerate(lst):
-        data = [item, item+(interval-1)]
-        if lst[-1]+(interval-1) != maks and index == len(lst) - 2:
-            data = [item, terbesar]
-            nambah = True
-
-        jarak.append(data)
-    """
-
     for i in lst:
         data = [i, i+(interval-1)]
         if lst[-1]+(interval-1) != maks and i == lst[-2]:
@@ -64,12 +54,9 @@ def hitung_frekuensi(maks, min, interval, data):
     frekuensi = {}
     kelas_data = kategori(maks, min, interval)
 
-    for z in range(len(kelas_data)):
-        key = f"{kelas_data[z][0]} - {kelas_data[z][1]}"
-        frekuensi[key] = 0
-
     for k in range(len(kelas_data)):
         key = f"{kelas_data[k][0]} - {kelas_data[k][1]}"
+        frekuensi[key] = 0
         for l in data:
             if kelas_data[k][0] <= l <= kelas_data[k][1]:
                 frekuensi[key] += 1
@@ -79,9 +66,6 @@ def hitung_frekuensi(maks, min, interval, data):
 
 def midpoint(kategori):
     mid = {}
-    for z in range(len(kategori)):
-        key = f"{kategori[z][0]} - {kategori[z][1]}"
-        mid[key] = 0
 
     for k in range(len(kategori)):
         key = f"{kategori[k][0]} - {kategori[k][1]}"
@@ -115,7 +99,7 @@ print(f"Jumlah Data: {jumlah_data}")
 print(f"Nilai Terkecil: {terkecil}")
 print(f"Nilai Terbesar: {terbesar}")
 print(f"Jumlah Kelas: {jumlah_kelas}")
-print(f"interval: {interval}")
+print(f"Interval: {interval}")
 print("Distribusi Frekuensi")
 for i in frekuensi:
     print(f"{i} = {frekuensi[i]}")
