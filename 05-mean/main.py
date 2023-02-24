@@ -75,11 +75,10 @@ def midpoint(kategori):
 
 
 def mean_kelompok(mid, freq, data, jumlah_data):
-    lst = []
+    total = 0
     for z in range(len(data)):
         key = f"{data[z][0]} - {data[z][1]}"
-        lst.append(mid[key] * freq[key])
-    total = sum(lst)
+        total += mid[key] * freq[key]
     hasil = total / jumlah_data
     return round(hasil, 2)
 
