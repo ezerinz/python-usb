@@ -107,5 +107,7 @@ for i in frekuensi:
 print()
 kategori = kategori(terbesar, terkecil, interval)
 midpoint = midpoint(kategori)
+for i in midpoint:
+    print(f"{i} = {midpoint[i]}")
 mean = mean_kelompok(midpoint, frekuensi, kategori, jumlah_data)
 print(f"Mean = {mean}")
