@@ -5,6 +5,13 @@ def factorial(n):
         return n * factorial(n-1)
 
 
+def factorial2(n):
+    res = 1
+    for i in range(2, n+1):
+        res *= i
+    return res
+
+
 def permutasi(n, r):
     rumus = factorial(n) / factorial(n-r)
     return rumus
@@ -17,3 +24,5 @@ def kombinasi(n, r):
 
 print(kombinasi(8, 3))
 print(permutasi(3, 2))
+print(factorial(3))
+print(factorial2(3))
