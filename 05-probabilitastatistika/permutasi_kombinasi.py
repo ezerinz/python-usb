@@ -1,15 +1,11 @@
 def factorial(n):
-    if n <= 1:
+    if n < 0:
+        raise Exception(
+            "Faktorial tidak berlaku untuk bilangan lebih kecil dari nol.")
+    elif n <= 1:
         return 1
     else:
         return n * factorial(n-1)
-
-
-def factorial2(n):
-    res = 1
-    for i in range(2, n+1):
-        res *= i
-    return res
 
 
 def permutasi(n, r):
@@ -24,5 +20,4 @@ def kombinasi(n, r):
 
 print(kombinasi(8, 3))
 print(permutasi(3, 2))
-print(factorial(3))
-print(factorial2(3))
+print(factorial(5))
